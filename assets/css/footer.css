@@ -1,0 +1,22 @@
+#layout-footer {
+  color: white;
+  position: fixed;
+  bottom: 0;
+  /* Stick to the bottom */
+  width: 100%;
+  /* Full width */
+  z-index: 100;
+  /* Adjust z-index as needed */
+  background: grey;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start; }
+  #layout-footer a {
+    color: white;
+    text-decoration: none; }
+  #layout-footer .footer-nav ul {
+    list-style: none; }
+    #layout-footer .footer-nav ul li {
+      display: inline-block;
+      margin-right: 10px;
+      /* Adjust as needed */ }
