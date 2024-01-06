@@ -1,8 +1,9 @@
 const Comment=require('../models/comment');
 const Post=require('../models/post');
-
+const commentsMailer=require("../mailers/comments_mailer");
 module.exports.create=async function(req,res){
-    try {
+    try 
+    {
         
         let post=await Post.findById(req.body.post)
         
@@ -18,6 +19,15 @@ module.exports.create=async function(req,res){
         post.comment.push(comment);
         post.save();
 
+        comment=await comment.populate('user','email name');
+        commentsMailer.newComment(comment);
+
+        // this below part is added only for testing the request after populating
+        // return res.json(200, {
+        //     message: "Sign in successfully, here is the token. Please keep it safe!",
+        //     data: comment
+        // })
+        
         req.flash('success', 'Comment Added!');
         return res.redirect('/');
     } catch (err) {
