@@ -85,6 +85,25 @@ module.exports.destroySession=function(req, res, next) {
     });
   }
 
+// for api purpouse
+module.exports.deleteUser=async function(req, res){
+    const userId = req.params.id;
+
+    try {
+      // Find and delete the user by ID
+      const deletedUser = await User.findByIdAndDelete(userId);
+
+      if (!deletedUser) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+
+      res.json({ message: 'User deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  }
+
 module.exports.update =async function (req, res) {
     // User.findByIdAndUpdate(
     //     req.params.id, // assuming req.id is the user's ID to be updated

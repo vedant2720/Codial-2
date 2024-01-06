@@ -10,6 +10,7 @@ const session=require('express-session');
 const passport=require('passport');
 const passportJWT=require('./config/passport-jwt-strategy');
 const passportLocal=require('./config/passport-local-strategy');
+const passportGoogle=require('./config/passport-google-outh2-strategy');
 const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
 const flash = require('connect-flash');
@@ -46,7 +47,7 @@ app.set('views','./views');
 app.use(session({
     name:'codial',
     //TODO change the secret key before deployment.
-    secret:'blahsomething',
+    secret:'codial',
     saveUninitialized:false,
     resave:false,
     cookie:{
