@@ -1,28 +1,20 @@
 #layout-footer {
-  color: white;
   position: fixed;
-  bottom: 0; /* Stick to the bottom */
-  width: 100%; /* Full width */
-  z-index: 100; /* Adjust z-index as needed */
-  
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  background: grey;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: flex-start;
-
-  .footer-nav {
-    ul {
-      list-style: none;
-
-      li {
-        display: inline-block;
-        margin-right: 10px; /* Adjust as needed */
-      }
-    }
-  }
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8f8f8; /* Set your desired background color */
+  padding: 10px;
+  text-align: center;
+  display: none; /* Initially hide the footer */
 }
+
+/* Show the footer when the user reaches the bottom of the page */
+body {
+  margin-bottom: 100px; /* Adjust the margin to the height of your footer */
+}
+
+body.show-footer #layout-footer {
+  display: block;
+}
+

@@ -1,5 +1,12 @@
 body {
-  background-color: #fefae0; }
+  background: #fefae0;
+  /* Replace 'your-image-url.jpg' with the path to your image */
+  background-size: cover;
+  /* This ensures that the background image covers the entire container */
+  margin: 0;
+  /* Remove default body margin */
+  padding: 0;
+  /* Remove default body padding */ }
 
 #home-container {
   display: flex; }

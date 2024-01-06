@@ -8,6 +8,7 @@ const db=require('./config/mongoose');
 // used for session cookie 
 const session=require('express-session');
 const passport=require('passport');
+const passportJWT=require('./config/passport-jwt-strategy');
 const passportLocal=require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
@@ -62,6 +63,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
+// make the upload path available to the browswer
+app.use('/uploads',express.static(__dirname + '/uploads'));
 
 app.use(flash());
 app.use(customMware.setFlash);

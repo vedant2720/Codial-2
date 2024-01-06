@@ -10,6 +10,10 @@ router.use('/users',require('./users'));
 router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
 
+
+// localhost:8000/api/v1/posts/    route for api
+router.use('/api',require('./api'));
+
 console.log('router loaded');
 
 module.exports=router;
