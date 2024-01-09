@@ -24,7 +24,7 @@ let renderTemplate = (data,relativePath)=>{
         data,
         function(err,template){
             if(err){
-                console.log("Error inrendering",err);
+                console.log("Error in rendering",err);
                 return;
             }
             else{
